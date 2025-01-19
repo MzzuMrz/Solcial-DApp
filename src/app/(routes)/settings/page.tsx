@@ -48,7 +48,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-4">
+    <div className="max-w-2xl mx-auto p-4 mx-60 my-12">
       <div className="flex items-center gap-2 mb-8">
         <User className="w-6 h-6 text-purple-400" />
         <h1 className="text-2xl font-semibold text-purple-400">Profile Settings</h1>

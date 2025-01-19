@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, User, Send, Bell, Settings } from 'lucide-react';
-import Balance from '../wallet/Balance';
 
 const navigation = [
   { name: 'Home', href: '/feed', icon: Home },
@@ -31,34 +30,37 @@ export default function Sidebar() {
           bg-black
           border-r border-white/20
           shadow-sm
+          z-20 
         "
       >
-        <nav className="px-4 py-6">
-          <ul className="space-y-2">
-            {navigation.map((item) => {
-              const Icon = item.icon;
-              const isActive = pathname === item.href;
-              return (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className={`
-                      flex items-center px-4 py-2 rounded-lg transition-colors
-                      ${
-                        isActive
-                          ? 'bg-purple-900 text-purple-400'
-                          : 'text-white hover:bg-black/50 hover:text-purple-400'
-                      }
-                    `}
-                  >
-                    <Icon className="w-5 h-5 mr-3" />
-                    {item.name}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        <div className="px-4 py-6 h-full overflow-y-auto">
+          <nav>
+            <ul className="space-y-4">
+              {navigation.map((item) => {
+                const Icon = item.icon;
+                const isActive = pathname === item.href;
+                return (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className={`
+                        flex items-center px-4 py-2 rounded-lg transition-colors
+                        ${
+                          isActive
+                            ? 'bg-purple-900 text-purple-400'
+                            : 'text-white hover:bg-black/50 hover:text-purple-400'
+                        }
+                      `}
+                    >
+                      <Icon className="w-5 h-5 mr-3" />
+                      {item.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </div>
       </aside>
 
       {/* BOTTOM NAV (visible on mobile) */}
@@ -73,7 +75,7 @@ export default function Sidebar() {
           px-4
           py-2
           lg:hidden
-          z-10
+          z-30 // Increased z-index
           bg-black
           border-t border-white/20
           shadow-sm

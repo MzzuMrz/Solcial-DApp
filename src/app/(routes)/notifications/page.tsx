@@ -44,7 +44,7 @@ export default function NotificationsPage() {
   }, [mockNotifications]);
 
   return (
-    <div className="min-h-screen bg-black text-white p-4 md:p-8">
+    <div className="h-full mx-60 my-12 bg-black text-white p-4 md:p-8">
       <h1 className="text-xl font-semibold text-purple-300 mb-6">Notifications</h1>
       <div className="space-y-4">
         {sortedNotifications.map((notif) => (
